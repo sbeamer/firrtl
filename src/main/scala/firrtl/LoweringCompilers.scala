@@ -208,6 +208,7 @@ class VerilogCompiler extends Compiler {
     new passes.InferReadWrite(TransID(-1)),
     new passes.memlib.ReplSeqMem(TransID(-2)),
     new MiddleFirrtlToLowFirrtl,
+    new passes.clocklist.ClockListTransform(TransID(-3)),
     new passes.InlineInstances(TransID(0)),
     new EmitVerilogFromLowFirrtl(writer)
   )
